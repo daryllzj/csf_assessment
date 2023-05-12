@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="uploadFile()">
+
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" formControlName="name"></td>
+      </tr>
+      <tr>
+        <td>Title:</td>
+        <td><input type="text" formControlName="title"></td>
+      </tr>
+      <tr>
+        <td>Comments:</td>
+        <td><textarea name="" id="" cols="30" rows="10" formControlName="comments"></textarea></td>
+      </tr>
+      <tr>
+        <td>Archive:</td>
+        <td><input type="file" #file formControlName="file"></td>
+      </tr>
+    </table>
+    <br>
+    <div>
+        <button type="button" (click)="cancel()">Cancel</button>
+        <button type="submit" [disabled]="form.invalid">Submit</button>
+    </div>
+    
+  </form>

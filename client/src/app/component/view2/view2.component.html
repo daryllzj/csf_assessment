@@ -1,0 +1,14 @@
+<h3>{{title | titlecase}}</h3>
+<p>By <span>{{name| titlecase}}</span> on {{date}}</p>
+<div>
+    <p>{{comments}}</p>
+    <button (click)="back()">Back</button>
+</div>
+
+<br>
+<table>
+    <tr *ngFor="let image of url">
+        <td><img src="{{image}}" alt="" width="100px"></td>
+    </tr>
+</table>
+

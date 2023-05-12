@@ -1,0 +1,17 @@
+<h3>Photo Storage</h3>
+
+<button (click)="gotoView1()">Upload</button>
+
+<br>
+<br>
+
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+    </tr>
+    <tr *ngFor="let bundle of bundles">
+        <td>{{bundle.title | titlecase}}</td>
+        <td>{{bundle.date}}</td>
+    </tr>
+</table>
