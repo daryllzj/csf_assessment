@@ -66,7 +66,7 @@ public class UploadController {
 	} catch (Exception e) {
 
 		JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
-		jsonObjectBuilder.add("error", "an error occured");
+		jsonObjectBuilder.add("error", "unable to upload document");
 		JsonObject jsonObject = jsonObjectBuilder.build();
 
 		return ResponseEntity.status(500).contentType(MediaType.APPLICATION_JSON).body(jsonObject.toString());
@@ -88,7 +88,7 @@ public class UploadController {
 			
 		} catch (Exception e) {
 			JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
-			jsonObjectBuilder.add("error", "an error occured");
+			jsonObjectBuilder.add("error", "unable to get bundle");
 			JsonObject jsonObject = jsonObjectBuilder.build();
 
 			return ResponseEntity.status(500).contentType(MediaType.APPLICATION_JSON).body(jsonObject.toString());
