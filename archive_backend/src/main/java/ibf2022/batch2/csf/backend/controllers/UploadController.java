@@ -55,6 +55,8 @@ public class UploadController {
 	try {
 		String bundleId = archiveRepository.recordBundle(key, name, comments, urls, title);
 
+		log.info("bundleId> " + bundleId);
+
 		JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
 		jsonObjectBuilder.add("bundleId", bundleId);
 		JsonObject jsonObject = jsonObjectBuilder.build();
@@ -96,7 +98,7 @@ public class UploadController {
 
 	// TODO: Task 6
 	@GetMapping (path = "/bundles")
-	public ResponseEntity<String> getBundbles() {
+	public ResponseEntity<String> getBundles() {
 
 		log.info("gettingBundles> ");
 
@@ -107,7 +109,7 @@ public class UploadController {
 			
 		} catch (Exception e) {
 			JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
-			jsonObjectBuilder.add("error", "an error occured");
+			jsonObjectBuilder.add("error", "unable to retrieve bundles");
 			JsonObject jsonObject = jsonObjectBuilder.build();
 
 			return ResponseEntity.status(500).contentType(MediaType.APPLICATION_JSON).body(jsonObject.toString());

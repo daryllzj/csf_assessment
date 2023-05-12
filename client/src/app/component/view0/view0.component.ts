@@ -15,7 +15,7 @@ export class View0Component implements OnInit {
 
   title!: string
   date!: string
-  bundles!: View0[]
+  bundles: View0[] = []
 
   ngOnInit(): void {
       this.http.getBundles()

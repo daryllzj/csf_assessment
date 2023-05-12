@@ -60,7 +60,9 @@ export class View1Component implements OnInit {
 
     this.httpService.uploadFile(formData)
     .then((data: Bundle) => {
+      console.log("bundle received")
       const bundleId = data['bundleId']
+      console.log("bundleId>" + bundleId)
       this.router.navigate(['/view2', bundleId]);
     })
   }

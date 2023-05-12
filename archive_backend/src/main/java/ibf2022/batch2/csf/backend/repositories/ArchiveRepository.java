@@ -106,20 +106,29 @@ public class ArchiveRepository {
 
 		query.fields().exclude("_id").include("date","title");
 
-		List<Document> listOfBundles = mongoTemplate.find(query, Document.class, ARCHIVES_COL);
-
-		log.info("listOfBundles> " + listOfBundles.toString());
-
 		List<JsonObject> list = new LinkedList<>();
 
-		for (Document document : listOfBundles) {
-			JsonObject json = toJson(document);
-			list.add(json);
+		try {
+			List<Document> listOfBundles = mongoTemplate.find(query, Document.class, ARCHIVES_COL);
+
+			log.info("listOfBundles> " + listOfBundles.toString());
+
+			
+
+			for (Document document : listOfBundles) {
+				JsonObject json = toJson(document);
+				list.add(json);
+			}
+
+			log.info("jsonList> " + list.toString());
+
+			return list;
+			
+		} catch (Exception e) {
+			return list;
 		}
 
-		log.info("jsonList> " + list.toString());
-
-		return list;
+		
 	}
 
 
